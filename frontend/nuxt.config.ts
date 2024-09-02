@@ -1,14 +1,19 @@
+import Aura from '@primevue/themes/aura';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
 
   css: [
+    'primeicons/primeicons.css',
     '~/assets/scss/app.scss'
   ],
 
   modules: [
     'nuxt-auth-sanctum',
+    '@primevue/nuxt-module',
+    '@nuxtjs/tailwindcss',
   ],
 
   components: [
@@ -28,5 +33,20 @@ export default defineNuxtConfig({
     redirect: {
       onLogout: '/login'
     }
+  },
+
+  primevue: {
+    options: {
+      ripple: true,
+      inputVariant: 'filled',
+      theme: {
+          preset: Aura,
+          options: {
+              prefix: 'p',
+              darkModeSelector: 'light',
+              cssLayer: false
+          }
+      }
+  }
   },
 })

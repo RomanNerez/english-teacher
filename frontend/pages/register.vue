@@ -1,29 +1,44 @@
 <template>
-    <div>
-        <form>
-            <div>
-                <label>Имя</label>
-                <input v-model="form.name" type="text" name="name">
-                <span>{{ errors.name }}</span>
+    <Card style="width: 25rem; overflow: hidden">
+        <template #title>Регистрация</template>
+        <template #content>
+            <div class="flex flex-col gap-2">
+                <label for="name">Имя</label>
+                <InputText v-model="form.name" id="name" />
+                <small>{{ errors.name }}</small>
             </div>
-            <div>
-                <label>Email</label>
-                <input v-model="form.email" type="email" name="email">
-                <span>{{ errors.email }}</span>
+            <div class="flex flex-col gap-2">
+                <label for="email">Email</label>
+                <InputText v-model="form.email" type="email" id="email" />
+                <small>{{ errors.email }}</small>
             </div>
-            <div>
-                <label>Пароль</label>
-                <input v-model="form.password" type="password" name="password">
-                <span>{{ errors.password }}</span>
+            <div class="flex flex-col gap-2">
+                <label for="password">Пароль</label>
+                <InputText v-model="form.password" type="password" id="password"  />
+                <small>{{ errors.password }}</small>
             </div>
-            <div>
-                <label>Повторить Пароль</label>
-                <input v-model="form.password_confirmation" type="password" name="password_confirmation">
+            <div class="flex flex-col gap-2">
+                <label for="password">Повторить Пароль</label>
+                <InputText v-model="form.password_confirmation" type="password" id="password"  />
+                <small>{{ errors.password_confirmation }}</small>
             </div>
-            <button type="button" @click="submitForm">Зарегистрироваться</button>
-            <NuxtLink to="/login">Есть аккаунт? Авторизоваться</NuxtLink>
-        </form>
-    </div>
+            <NuxtLink to="/">
+                Забыли пароль?
+            </NuxtLink>
+        </template>
+        <template #footer>
+            <div class="flex gap-4 mt-1">
+                <Button class="w-full" @click="submitForm">
+                    Зарегистрироваться
+                </Button>
+            </div>
+            <div class="flex gap-4 mt-1">
+                <NuxtLink class="w-full" to="/login">
+                    <Button class="w-full" link>Есть аккаунт? Авторизоваться</Button>
+                </NuxtLink>
+            </div>
+        </template>
+    </Card>
 </template>
 
 <script setup lang="ts">

@@ -1,18 +1,34 @@
 <template>
-    <div>
-        <form>
-            <div>
-                <label>Email</label>
-                <input v-model="form.email" type="email" name="email">
+    <Card style="width: 25rem; overflow: hidden">
+        <template #title>Вход</template>
+        <template #content>
+            <div class="flex flex-col gap-2">
+                <label for="email">Email</label>
+                <InputText v-model="form.email" type="email" id="email" />
+                <small></small>
             </div>
-            <div>
-                <label>Пароль</label>
-                <input v-model="form.password" type="password" name="password">
+            <div class="flex flex-col gap-2">
+                <label for="password">Пароль</label>
+                <InputText v-model="form.password" type="password" id="password"  />
+                <small></small>
             </div>
-            <button type="button" @click="login(form)">Войти</button>
-            <NuxtLink to="/register">Зарегистрироваться</NuxtLink>
-        </form>
-    </div>
+            <NuxtLink to="/">
+                Забыли пароль?
+            </NuxtLink>
+        </template>
+        <template #footer>
+            <div class="flex gap-4 mt-1">
+                <Button class="w-full" @click="login(form)">
+                    Войти
+                </Button>
+            </div>
+            <div class="flex gap-4 mt-1">
+                <NuxtLink class="w-full" to="/register">
+                    <Button class="w-full" link>Зарегистрироваться</Button>
+                </NuxtLink>
+            </div>
+        </template>
+    </Card>
 </template>
 
 <script setup lang="ts">
