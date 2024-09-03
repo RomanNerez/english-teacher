@@ -7,7 +7,8 @@ export default defineNuxtConfig({
 
   css: [
     'primeicons/primeicons.css',
-    '~/assets/scss/app.scss'
+    '~/assets/scss/app.scss',
+    '~/assets/scss/styles.scss'
   ],
 
   modules: [
